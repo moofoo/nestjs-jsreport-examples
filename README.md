@@ -4,7 +4,7 @@
 git clone https://github.com/moofoo/nestjs-jsreport-examples && cd nestjs-jsreport-examples && yarn && yarn start:dev
 ```
 
-This repo demonstrates (very basic) NestJS + JSReport integration. The app has six endpoints which generate different reports, taken from the [JSReport Playground](https://playground.jsreport.net/).
+This repo demonstrates (very basic) NestJS + JSReport integration. The app has six endpoints which generate different reports, taken from the [JSReport Playground](https://playground.jsreport.net/). The goal here is not to present a robust JSReports module, but demonstrate the basics of initializing JsReports and generating reports from templates and data, in addition to covering some of the 'gotchas' and configuration quirks involved.
 
 The following 'Recipes' are used:
 
@@ -44,12 +44,6 @@ The following 'Recipes' are used:
 
 - Chrome PDF
 - [Playground Link](https://playground.jsreport.net/w/admin/ms2EkdfI)
-
-#The following 'Recipes' are used:
-
-DocX
-Chrome PDF (html-to-pdf using headless chromium)
-Xlsx
 
 All endpoints except for `flight-ticket` endpoint will generate a PDF (instead of .docx or .xlsx) with the query `pdf=1` (i.e, http://localhost:3333/reports/invoice?pdf=1)
 
