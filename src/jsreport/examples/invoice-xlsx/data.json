@@ -1,0 +1,19 @@
+{
+    "invoiceNumber": "T-123",
+    "company": {
+        "name": "jsreport",
+        "address": "Prague 345",
+        "email": "foo",
+        "phone": "phone"
+    },
+    "date": "07/02/22",
+    "items": [{
+        "name": "Product 1",
+        "taxed": false,
+        "amount": 2375
+    }, {
+        "name": "Service 1",
+        "taxed": true,
+        "amount": 235
+    }]
+}

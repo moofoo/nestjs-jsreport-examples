@@ -1,0 +1,89 @@
+{
+  "name": "new_nest_app",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@jsreport/jsreport-assets": "^3.6.0",
+    "@jsreport/jsreport-chrome-pdf": "^3.3.0",
+    "@jsreport/jsreport-core": "^3.11.4",
+    "@jsreport/jsreport-docx": "^3.7.1",
+    "@jsreport/jsreport-handlebars": "^3.2.1",
+    "@jsreport/jsreport-html-to-xlsx": "^3.3.1",
+    "@jsreport/jsreport-unoconv": "^3.0.1",
+    "@jsreport/jsreport-xlsx": "^3.4.0",
+    "@nestjs/common": "^9.4.2",
+    "@nestjs/core": "^9.4.2",
+    "@nestjs/platform-express": "^9.4.2",
+    "bwip-js": "^3.4.0",
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "puppeteer": "^20.4.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.5.0",
+    "@nestjs/schematics": "^9.2.0",
+    "@nestjs/testing": "^9.4.2",
+    "@types/express": "^4.17.17",
+    "@types/jest": "29.5.1",
+    "@types/jsreport": "^2.9.1",
+    "@types/jsreport-chrome-pdf": "^1.6.3",
+    "@types/jsreport-core": "^2.0.5",
+    "@types/jsreport-docx": "^2.8.2",
+    "@types/jsreport-html-to-xlsx": "^2.0.3",
+    "@types/jsreport-xlsx": "^1.4.2",
+    "@types/node": "20.2.3",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "29.5.0",
+    "prettier": "^2.8.8",
+    "source-map-support": "^0.5.21",
+    "supertest": "^6.3.3",
+    "ts-jest": "29.1.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "^5.0.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

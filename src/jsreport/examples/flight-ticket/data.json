@@ -1,0 +1,18 @@
+{
+      "ticket": {
+          "code": "581347789237158",
+          "classType": "Y",
+          "passengerName": "Doe/John, Mr.",
+          "flightCode": "PR013",
+          "originCode": "MJV",
+          "originCity": "Madrid",
+          "destinationCode": "CDG",
+          "destinationCity": "Paris",
+          "boardingHour": "05:00",
+          "gate": 11,
+          "dateTimestamp": 1563426000000,
+          "flightHour": "05:30",
+          "bagCode": "1PCS21KG",
+          "seat": "28A"
+      }
+  }

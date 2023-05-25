@@ -1,0 +1,27 @@
+{
+      "people": [{
+          "name": "Bob",
+          "age": 34,
+          "job": "Economist"
+      }, {
+          "name": "Maria",
+          "age": 29,
+          "job": "Stylist"
+      }, {
+          "name": "Junior",
+          "age": 24,
+          "job": "Developer"
+      }, {
+          "name": "Carmen",
+          "age": 36,
+          "job": "Lawyer"
+      }, {
+          "name": "Marco",
+          "age": 48,
+          "job": "Doctor"
+      }, {
+          "name": "Jack",
+          "age": 27,
+          "job": "Architect"
+      }]
+  }

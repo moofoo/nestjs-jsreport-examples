@@ -1,0 +1,26 @@
+<style>
+    th {
+        font-size: 20px;
+    }
+    
+    td, th {
+        background-color: #abe81b;
+        border: 3px solid #455bd0;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Job</th>
+    </tr>
+    {{#each people}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{age}}</td>
+            <td>{{job}}</td>
+        </tr>
+    {{/each}}
+</table>

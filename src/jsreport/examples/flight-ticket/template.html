@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <style>
+            {{asset "examples/flight-ticket/style.css" "utf8"}}
+        </style>
+    </head>
+    <body> 
+        <section class="container">
+            <main class="main">
+                <header class="main-header">
+                    <div>
+                        <div class="main-header-banner">
+                            BOARDING PASS
+                        </div>
+                    </div>
+                    <div class="main-header-title">
+                        {{getClassTypeInText ticket.classType}}
+                    </div>
+                </header>
+                <section class="main-content">
+                    <div class="main-content-barcode-container">
+                        <div class="main-content-barcode">                          
+                            <img alt="Barcoded value {{ticket.code}}" src="{{barcode ticket.code}}">                            
+                        </div>
+                    </div>
+                    <div class="main-content-details">
+                        <div class="content-details-row">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">PASSENGER NAME</span>
+                                <div class="content-details-field-value" style="padding-left: 15px">
+                                    {{ticket.passengerName}}
+                                </div>
+                            </div>
+                            <div class="content-details-field" style="margin-left: 25px">
+                                <span class="content-details-field-label">FLIGHT</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.flightCode}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-details-row" style="justify-content: center;">
+                            <div class="main-content-country-code">{{ticket.originCode}}</div>
+                            <div>
+                                <img class="main-content-route-icon" src="{{asset "examples/flight-ticket/images/route.png" "dataURI"}}" />
+                            </div>
+                            <div class="main-content-country-code">{{ticket.destinationCode}}</div>
+                        </div>
+                        <div class="content-details-row">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">CLASS</span>
+                                <div class="content-details-field-value content-critical-text">
+                                    {{ticket.classType}}
+                                </div>
+                            </div>
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">BOARDING TILL</span>
+                                <div class="content-details-field-value content-critical-text">
+                                    {{ticket.boardingHour}}
+                                </div>
+                            </div>
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">GATE</span>
+                                <div class="content-details-field-value content-critical-text">
+                                    {{ticket.gate}}
+                                </div>
+                            </div>
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">DATE</span>
+                                <div class="content-details-field-value">
+                                    {{getDateText ticket.dateTimestamp}}
+                                </div>
+                            </div>
+                            <div class="content-details-field" style="margin-left: 25px;">
+                                <span class="content-details-field-label">TIME</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.flightHour}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-details-row" style="justify-content: space-between;">
+                            <div class="content-details-field-value">
+                                ETKT: {{ticket.code}}
+                            </div>
+                            <div class="content-details-field-value">
+                                BAG {{ticket.bagCode}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <aside class="aside">
+                <header class="aside-header">
+                    <div style="display: flex; justify-content: flex-end;">
+                        <div class="aside-header-banner">
+                            BOARDING PASS
+                        </div>
+                    </div>
+                    <div class="aside-header-title">
+                        {{getClassTypeInText ticket.classType}}
+                    </div>
+                </header>
+                <section class="aside-content">
+                    <div class="aside-content-details">
+                        <div class="content-details-small-row">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">PASSENGER NAME</span>
+                                <div class="content-details-field-value" style="padding-left: 15px">
+                                    {{ticket.passengerName}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-details-small-row">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label" style="display: inline-block; width: 50px">FROM</span>
+                                <span class="content-details-field-inline-value">{{ticket.originCity}}</span>
+                            </div>
+                        </div>
+                        <div class="content-details-small-row" style="margin-top: -10px">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label" style="display: inline-block; width: 50px">TO</span>
+                                <span class="content-details-field-inline-value">{{ticket.destinationCity}}</span>
+                            </div>
+                        </div>
+                        <div class="content-details-small-row">
+                            <div class="content-details-small-field">
+                                <span class="content-details-field-label">FLIGHT</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.flightCode}}
+                                </div>
+                            </div>
+                            <div class="content-details-small-field">
+                                <span class="content-details-field-label">CLASS</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.classType}}
+                                </div>
+                            </div>
+                            <div class="content-details-small-field">
+                                <span class="content-details-field-label">DATE</span>
+                                <div class="content-details-field-value">
+                                    {{getDateText ticket.dateTimestamp}}
+                                </div>
+                            </div>
+                            <div class="content-details-small-field">
+                                <span class="content-details-field-label">TIME</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.flightHour}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-details-small-row">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label">FLIGHT</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.flightCode}}
+                                </div>
+                            </div>
+                            <div class="content-details-field" style="margin-left: 25px">
+                                <span class="content-details-field-label">BOARD TILL</span>
+                                <div class="content-details-field-value">
+                                    {{ticket.boardingHour}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-details-small-row">
+                            <div class="content-details-field">
+                                <span class="content-details-field-label" style="display: block; text-align: center;">SEAT</span>
+                                <div class="content-details-field-value content-critical-text">
+                                    {{ticket.seat}}
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="aside-footer">
+                            HAVE A NICE TRIP!
+                        </footer>
+                    </div>
+                </section>
+            </aside>
+        </section>
+        <script>
+            window.JSREPORT_READY_TO_START = true
+        </script>        
+    </body>
+</html>
