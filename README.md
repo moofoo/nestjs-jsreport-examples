@@ -15,7 +15,7 @@ The following 'Recipes' are used:
 
 ## Report Endpoints
 
-### [http://localhost/reports/students](http://localhost/reports/students)
+### [http://localhost/reports/student](http://localhost/reports/student)
 
 - DocX
 - [Playground Link](https://playground.jsreport.net/w/admin/d7o0nIWc)
@@ -40,12 +40,16 @@ The following 'Recipes' are used:
 - Html-to-Xlsx
 - [Playground Link](https://playground.jsreport.net/w/admin/h45L49Dp)
 
-### [http://localhost/reports/flight-ticket](http://localhost/reportsflight-ticket)
+### [http://localhost/reports/ticket](http://localhost/reports/ticket)
 
 - Chrome PDF
 - [Playground Link](https://playground.jsreport.net/w/admin/ms2EkdfI)
 
-#
+#The following 'Recipes' are used:
+
+DocX
+Chrome PDF (html-to-pdf using headless chromium)
+Xlsx
 
 All endpoints except for `flight-ticket` endpoint will generate a PDF (instead of .docx or .xlsx) with the query `pdf=1` (i.e, http://localhost/reports/invoice?pdf=1)
 
