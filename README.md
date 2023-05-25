@@ -15,32 +15,32 @@ The following 'Recipes' are used:
 
 ## Report Endpoints
 
-### [http://localhost/reports/student](http://localhost/reports/student)
+### [http://localhost:3333/reports/student](http://localhost:3333/reports/student)
 
 - DocX
 - [Playground Link](https://playground.jsreport.net/w/admin/d7o0nIWc)
 
-### [http://localhost/reports/invoice](http://localhost/reports/invoice)
+### [http://localhost:3333/reports/invoice](http://localhost:3333/reports/invoice)
 
 - DocX
 - [Playground Link](https://playground.jsreport.net/w/admin/yo9J3hvu)
 
-### [http://localhost/reports/invoice-xlsx](http://localhost/reports/invoice-xlsx)
+### [http://localhost:3333/reports/invoice-xlsx](http://localhost:3333/reports/invoice-xlsx)
 
 - Xlsx
 - [Playground Link](https://playground.jsreport.net/w/admin/Lh8Kjc~f)
 
-### [http://localhost/reports/population](http://localhost/reports/population)
+### [http://localhost:3333/reports/population](http://localhost:3333/reports/population)
 
 - Xlsx
 - [Playground Link](https://playground.jsreport.net/w/admin/V71OgRWt)
 
-### [http://localhost/reports/html-to-xlsx](http://localhost/reports/html-to-xlsx)
+### [http://localhost:3333/reports/html-to-xlsx](http://localhost:3333/reports/html-to-xlsx)
 
 - Html-to-Xlsx
 - [Playground Link](https://playground.jsreport.net/w/admin/h45L49Dp)
 
-### [http://localhost/reports/ticket](http://localhost/reports/ticket)
+### [http://localhost:3333/reports/ticket](http://localhost:3333/reports/ticket)
 
 - Chrome PDF
 - [Playground Link](https://playground.jsreport.net/w/admin/ms2EkdfI)
@@ -51,7 +51,7 @@ DocX
 Chrome PDF (html-to-pdf using headless chromium)
 Xlsx
 
-All endpoints except for `flight-ticket` endpoint will generate a PDF (instead of .docx or .xlsx) with the query `pdf=1` (i.e, http://localhost/reports/invoice?pdf=1)
+All endpoints except for `flight-ticket` endpoint will generate a PDF (instead of .docx or .xlsx) with the query `pdf=1` (i.e, http://localhost:3333/reports/invoice?pdf=1)
 
 ## Why do this?
 
