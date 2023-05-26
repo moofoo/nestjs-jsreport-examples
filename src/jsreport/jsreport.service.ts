@@ -29,7 +29,7 @@ type JsReportResult = JsReport.Response & {
 export class JsReportService implements OnModuleInit {
   private jsreport: JsReport.Reporter;
 
-  constructor() {
+  async onModuleInit() {
     this.jsreport = require('@jsreport/jsreport-core')({
       sandbox: { allowedModules: '*' },
       rootDirectory: __dirname,
@@ -40,9 +40,6 @@ export class JsReportService implements OnModuleInit {
         },
       },
     });
-  }
-
-  async onModuleInit() {
     this.jsreport.use(require('@jsreport/jsreport-xlsx')());
     this.jsreport.use(require('@jsreport/jsreport-html-to-xlsx')());
     this.jsreport.use(require(`@jsreport/jsreport-docx`)());
