@@ -53,25 +53,6 @@ Well, in terms of pure document generation chops (not talking about templating b
 
 However, unlike those services, JSReports does not gatekeep **ANY** functionality behind payment tiers. Rather, their business model is oriented around usage of their 'Studio' template builder GUI, which has SaaS and self-hosted versions, while the JSReport server code itself is completely open source and accessible.
 
-So, by making use of the [jsreport core package](https://github.com/jsreport/jsreport/tree/master/packages/jsreport-core), and with shockingly little effort, you can have self-hosted document generation that's on-par with any SaaS out there. **For $0.00.**
+So, by making use of the [jsreport core package](https://github.com/jsreport/jsreport/tree/master/packages/jsreport-core) you can have self-hosted document generation that's on-par with any SaaS out there.
 
-The [JSReport Studio GUI](https://playground.jsreport.net/w/admin/S3xqZ0Zc) is actually quite good, if that's something you're looking for. Very 'developer oriented' and flexible, unlike other templating backends I've tried (which are usually intended for document creators, not devs).
-
-## Notes
-
-- Passing a string of javascript to create custom template handlers seems...kinda weird? Am I missing something? I suppose it makes more sense in the context of the Studio GUI.
-
-- Note how the jsreport instance config affects the asset placeholder paths in [template.html](src/jsreport/examples/flight-ticket/template.html). Specifically the `rootDirectory` option:
-
-```typescript
-this.jsreport = require('@jsreport/jsreport-core')({
-  sandbox: { allowedModules: '*' },
-  rootDirectory: __dirname,
-  extensions: {
-    assets: {
-      allowedFiles: '**/*.*',
-      searchOnDiskIfNotFoundInStore: true,
-    },
-  },
-});
-```
+The [JSReport Studio GUI](https://playground.jsreport.net/w/admin/S3xqZ0Zc) is actually quite good, if that's something you're looking for.

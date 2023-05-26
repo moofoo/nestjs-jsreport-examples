@@ -24,6 +24,7 @@
     "@jsreport/jsreport-chrome-pdf": "^3.3.0",
     "@jsreport/jsreport-core": "^3.11.4",
     "@jsreport/jsreport-docx": "^3.7.1",
+    "@jsreport/jsreport-fs-store": "^3.2.4",
     "@jsreport/jsreport-handlebars": "^3.2.1",
     "@jsreport/jsreport-html-to-xlsx": "^3.3.1",
     "@jsreport/jsreport-unoconv": "^3.0.1",
@@ -31,6 +32,7 @@
     "@nestjs/common": "^9.4.2",
     "@nestjs/core": "^9.4.2",
     "@nestjs/platform-express": "^9.4.2",
+    "@nestjs/terminus": "^9.2.2",
     "bwip-js": "^3.4.0",
     "handlebars": "^4.7.7",
     "lodash": "^4.17.21",
@@ -38,6 +40,7 @@
     "puppeteer": "^20.4.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
+    "v8": "^0.1.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

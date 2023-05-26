@@ -1,10 +1,30 @@
 import { Controller, Res, Get, Query, StreamableFile } from '@nestjs/common';
-import { JsReportService } from './jsreport.service';
 import { Response } from 'express';
+import * as Reports from './reports';
+import { JsReportResult } from './types';
 
 @Controller('reports')
 export class JsReportController {
-  constructor(private readonly jsreport: JsReportService) {}
+  constructor(
+    private student: Reports.StudentReport,
+    private population: Reports.PopulationReport,
+    private ticket: Reports.TicketReport,
+    private html: Reports.HtmlToXlsxReport,
+    private invoice: Reports.InvoiceReport,
+    private invoiceXlsx: Reports.InvoiceXlsxReport,
+  ) {}
+
+  getContentHeaders(result: JsReportResult, pdf = false, defaultType = 'docx') {
+    return {
+      'Content-Type': pdf
+        ? 'application/pdf'
+        : `${result.meta.contentType}; charset=utf-8`,
+      'Content-Disposition': `attachment; filename="${result.meta.reportName}.${
+        pdf ? 'pdf' : defaultType
+      }"`,
+      'Content-Length': result.content.byteLength,
+    };
+  }
 
   // student docx ///////////////////////////
   @Get('/student')
@@ -14,9 +34,9 @@ export class JsReportController {
   ) {
     const pdf = query?.pdf === '1' ? true : false;
 
-    const result = await this.jsreport.renderStudent(pdf);
+    const result = await this.student.render(pdf);
 
-    res.set(this.jsreport.getContentHeaders(result, pdf, 'docx'));
+    res.set(this.getContentHeaders(result, pdf, 'docx'));
 
     return new StreamableFile(result.stream as any);
   }
@@ -29,9 +49,9 @@ export class JsReportController {
   ) {
     const pdf = query?.pdf === '1' ? true : false;
 
-    const result = await this.jsreport.renderInvoice(pdf);
+    const result = await this.invoice.render(pdf);
 
-    res.set(this.jsreport.getContentHeaders(result, pdf, 'docx'));
+    res.set(this.getContentHeaders(result, pdf, 'docx'));
 
     return new StreamableFile(result.stream as any);
   }
@@ -44,9 +64,9 @@ export class JsReportController {
   ) {
     const pdf = query?.pdf === '1' ? true : false;
 
-    const result = await this.jsreport.renderInvoiceSheet(pdf);
+    const result = await this.invoiceXlsx.render(pdf);
 
-    res.set(this.jsreport.getContentHeaders(result, pdf, 'xlsx'));
+    res.set(this.getContentHeaders(result, pdf, 'xlsx'));
 
     return new StreamableFile(result.stream as any);
   }
@@ -59,9 +79,9 @@ export class JsReportController {
   ) {
     const pdf = query?.pdf === '1' ? true : false;
 
-    const result = await this.jsreport.renderPopulation(pdf);
+    const result = await this.population.render(pdf);
 
-    res.set(this.jsreport.getContentHeaders(result, pdf, 'xlsx'));
+    res.set(this.getContentHeaders(result, pdf, 'xlsx'));
 
     return new StreamableFile(result.stream as any);
   }
@@ -74,9 +94,9 @@ export class JsReportController {
   ) {
     const pdf = query?.pdf === '1' ? true : false;
 
-    const result = await this.jsreport.renderHtmlToXlsx(pdf);
+    const result = await this.html.render(pdf);
 
-    res.set(this.jsreport.getContentHeaders(result, pdf, 'xlsx'));
+    res.set(this.getContentHeaders(result, pdf, 'xlsx'));
 
     return new StreamableFile(result.stream as any);
   }
@@ -84,7 +104,7 @@ export class JsReportController {
   // ticket chrome-pdf (html to pdf) ///////////////////////////
   @Get('/ticket')
   async ticketReport(@Res({ passthrough: true }) res: Response) {
-    const result = await this.jsreport.renderTicket();
+    const result = await this.ticket.render();
 
     res.set({
       'Content-Type': `application/pdf`,

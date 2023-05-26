@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
 const bwipjs = require('bwip-js');
 
 async function barcode(text) {

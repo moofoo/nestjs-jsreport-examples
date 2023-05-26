@@ -1,7 +1,7 @@
 <html>
     <head>
         <style>
-            {{asset "examples/flight-ticket/style.css" "utf8"}}
+            {{asset "style.css" "utf8"}}
         </style>
     </head>
     <body> 
@@ -41,7 +41,7 @@
                         <div class="content-details-row" style="justify-content: center;">
                             <div class="main-content-country-code">{{ticket.originCode}}</div>
                             <div>
-                                <img class="main-content-route-icon" src="{{asset "examples/flight-ticket/images/route.png" "dataURI"}}" />
+                                <img class="main-content-route-icon" src="{{asset "route.png" "dataURI"}}" />
                             </div>
                             <div class="main-content-country-code">{{ticket.destinationCode}}</div>
                         </div>

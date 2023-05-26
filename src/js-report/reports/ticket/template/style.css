@@ -72,7 +72,7 @@
       width: 50px;
       height: 50px;
       background-size: 50px 50px;
-      background-image: url("{#asset examples/flight-ticket/images/airplane.png @encoding=dataURI}");
+      background-image: url("{#asset airplane.png @encoding=dataURI}");
       background-repeat: no-repeat;
       transform: rotate(-60deg);
   }
