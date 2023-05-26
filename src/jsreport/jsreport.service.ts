@@ -134,12 +134,12 @@ export class JsReportService implements OnModuleInit {
         reportName: 'ticket',
       },
       template: {
+        engine: 'handlebars',
+        recipe: 'chrome-pdf',
         content: fs.readFileSync(
           path.join(__dirname, 'examples/flight-ticket/template.html'),
           'utf-8',
         ),
-        recipe: 'chrome-pdf',
-        engine: 'handlebars',
         chrome: {
           printBackground: true,
           marginTop: '30px',
