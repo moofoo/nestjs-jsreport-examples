@@ -4,11 +4,13 @@
 git clone https://github.com/moofoo/nestjs-jsreport-examples && cd nestjs-jsreport-examples && yarn && yarn start:dev
 ```
 
-This repo demonstrates what you can do with the core JSReport libraries programmatically in your own NodeJS apps. Neither the JsReport 'Template Studio', their SaaS offerings, or any other SaaS provider, is involveds. All templating and report generation is performed locally by the NestJS server, using the JSReport 'renderer core' with the necessary extensions.
+This repo demonstrates what you can do with the core JSReport libraries programmatically in your own NodeJS apps. Neither the JsReport 'Template Studio', their SaaS offerings, or any other SaaS provider or external service is involved in creating these reports.
+
+All templating and report generation is performed locally by the NestJS server, using the JSReport 'renderer core' and the necessary extensions.
 
 The NestJS implementation is a work in progress. If you check back in a week or so, chances are it will be completely different.
 
-I replicated all of the JSReport "[showcase](https://jsreport.net/showcases/)" reports minus the "PDF Stock Report", due . I also did a few of the simpler example reports from the [JSReport Playground](https://playground.jsreport.net/).
+I replicated all of the JSReport "[showcase](https://jsreport.net/showcases/)" showcase reports, except for the "PDF Stock Report". I also added a fiew of the example I also did a few of the simple examples from the [JSReport Playground](https://playground.jsreport.net/).
 
 #
 
