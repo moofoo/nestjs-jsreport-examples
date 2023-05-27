@@ -10,10 +10,12 @@ export class JsReportService {
   constructor(@Inject(JS_REPORT_TOKEN) private jsReport: JsReporter) {
     this.asset = new AssetHelper(jsReport);
     this.template = new TemplateHelper(jsReport);
+    this.script = new AssetHelper(jsReport, 'scripts');
   }
 
   asset: AssetHelper;
   template: TemplateHelper;
+  script: AssetHelper;
 
   render(request: Request, parent?: Request) {
     return this.jsReport.render(request, parent) as Promise<JsReportResult>;

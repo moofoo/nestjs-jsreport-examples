@@ -2,6 +2,7 @@ import { Controller, Res, Get, Query, StreamableFile } from '@nestjs/common';
 import { Response } from 'express';
 import * as Reports from './reports';
 import { JsReportResult } from './types';
+import { get } from 'http';
 
 @Controller('reports')
 export class JsReportController {
@@ -12,6 +13,9 @@ export class JsReportController {
     private html: Reports.HtmlToXlsxReport,
     private invoice: Reports.InvoiceReport,
     private invoiceXlsx: Reports.InvoiceXlsxReport,
+    private pdfForms: Reports.PdfFormsReport,
+    private pdfDashboard: Reports.PdfDashboardReport,
+    private excelDashboard: Reports.ExcelDashReport,
   ) {}
 
   getContentHeaders(result: JsReportResult, pdf = false, defaultType = 'docx') {
@@ -24,6 +28,42 @@ export class JsReportController {
       }"`,
       'Content-Length': result.content.byteLength,
     };
+  }
+
+  @Get('/excel-dashboard')
+  async excelDash(
+    @Res({ passthrough: true }) res: Response,
+    @Query() query: { pdf?: string },
+  ) {
+    const pdf = query?.pdf === '1' ? true : false;
+
+    const result = await this.excelDashboard.render(pdf);
+
+    res.set(this.getContentHeaders(result, pdf, 'xlsx'));
+
+    return new StreamableFile(result.stream as any);
+  }
+
+  @Get('/pdf-dashboard')
+  async pdfDash(@Res({ passthrough: true }) res: Response) {
+    const result = await this.pdfDashboard.render();
+
+    res.set({
+      'Content-Type': `application/pdf`,
+      'Content-Disposition': 'attachment; filename="pdf-dashboard.pdf"',
+      'Content-Length': result.content.byteLength,
+    });
+
+    return new StreamableFile(result.stream as any);
+  }
+
+  @Get('/pdf-forms')
+  async pdfFormal(@Res({ passthrough: true }) res: Response) {
+    const result = await this.pdfForms.render();
+
+    res.set(this.getContentHeaders(result, true, 'pdf'));
+
+    return new StreamableFile(result.stream as any);
   }
 
   // student docx ///////////////////////////

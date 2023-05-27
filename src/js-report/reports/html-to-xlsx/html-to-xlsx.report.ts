@@ -8,8 +8,8 @@ import htmlToXlsxData from './template/data.json';
 @Injectable()
 export class HtmlToXlsxReport {
   constructor(readonly jsReport: JsReportService) {
-    this.jsReport.template.insertFn<HtmlXlsx>('invoice', () => ({
-      name: 'invoice',
+    this.jsReport.template.insertFn<HtmlXlsx>('htmlxlsx', () => ({
+      name: 'htmlxlsx',
       recipe: 'html-to-xlsx',
       engine: 'handlebars',
       htmlToXlsx: {
@@ -24,11 +24,11 @@ export class HtmlToXlsxReport {
 
   async render(pdf = false, data = htmlToXlsxData) {
     return this.jsReport.render({
-      options: { reportName: 'invoice' },
+      options: { reportName: 'htmlxlsx' },
       template: {
-        name: 'invoice',
+        name: 'htmlxlsx',
         engine: 'handlebars',
-        recipe: 'docx',
+        recipe: 'html-to-xlsx',
         unoconv: {
           format: 'pdf',
           enabled: pdf,

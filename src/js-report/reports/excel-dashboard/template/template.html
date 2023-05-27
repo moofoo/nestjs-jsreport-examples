@@ -1,0 +1,67 @@
+<style>
+      {{asset "excel-dash-style" "utf8"}}
+    </style>
+    <table name="Data">
+        <tr>
+            <td class="title" colspan="10">PROJECT PORTFOLIO DATA</td>
+        </tr>
+        <tr class="cell-titles">
+            <td class="cell-project-name" rowspan="2">PROJECT NAME</td>
+            <td class="cell-timeline" colspan="4">TIMELINE</td>
+            <td class="cell-number-of-team-members line-break" rowspan="2">NUMBER<br />OF TEAM<br />MEMBERS</td>
+            <td class="cell-budget" colspan="3">BUDGET</td>
+            <td class="cell-risks" colspan="3">RISKS</td>
+            <td class="cell-open" colspan="2">OPEN</td>
+            <td class="cell-pending-actions line-break" rowspan="2">PENDING<br />ACTIONS</td>
+        </tr>
+        <tr class="cell-titles">
+            <td class="cell-timeline-child">CALENDAR</td>
+            <td class="cell-timeline-child">BEGIN</td>
+            <td class="cell-timeline-child">FINISH</td>
+            <td class="cell-timeline-child"># of DAYS</td>
+            <td class="cell-budget-child">PROJECTED</td>
+            <td class="cell-budget-child">ACTUAL</td>
+            <td class="cell-budget-child">REMAINDER</td>
+            <td class="cell-risks-child">HIGH</td>
+            <td class="cell-risks-child">MEDIUM</td>
+            <td class="cell-risks-child">LOW</td>
+            <td class="cell-open-child">ISSUES</td>
+            <td class="cell-open-child">REVISIONS</td>
+        </tr>
+        {{#each projects}}
+            <tr class="{{addClassIfRowEven @index}}">
+                <td class="cell-project-name-content">{{name}}</td>
+                <td class="cell-timeline-content" data-cell-type="date" data-cell-format-str="dd/mm/yyyy">{{timeline.calendar}}</td>
+                <td class="cell-timeline-content" data-cell-type="date" data-cell-format-str="dd/mm/yyyy">{{timeline.begin}}</td>
+                <td class="cell-timeline-content" data-cell-type="date" data-cell-format-str="dd/mm/yyyy">{{timeline.finish}}</td>
+                <td class="cell-timeline-content" data-cell-type="number">{{timeline.numberOfDays}}</td>
+                <td class="cell-number-of-team-members-content" data-cell-type="number">{{teamMembers}}</td>
+                <td class="cell-budget-content" data-cell-type="number" data-cell-format-str="$#,##0">{{budget.projected}}</td>
+                <td class="cell-budget-content" data-cell-type="number" data-cell-format-str="$#,##0">{{budget.actual}}</td>
+                <td class="cell-budget-content" data-cell-type="number" data-cell-format-str="$#,##0">{{budget.remainder}}</td>
+                <td class="cell-risks-content" data-cell-type="number">{{risks.high}}</td>
+                <td class="cell-risks-content" data-cell-type="number">{{risks.medium}}</td>
+                <td class="cell-risks-content" data-cell-type="number">{{risks.low}}</td>
+                <td class="cell-open-content" data-cell-type="number">{{open.issues}}</td>
+                <td class="cell-open-content" data-cell-type="number">{{open.revisions}}</td>
+                <td class="cell-pending-actions-content" data-cell-type="number">{{pendingActions}}</td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cell-budget-content cell-budget-sum" data-cell-type="formula" data-cell-format-str="$#,##0">{{{printSUMFormulaRange "G" 4 projects.length}}}</td>
+            <td class="cell-budget-content cell-budget-sum" data-cell-type="formula" data-cell-format-str="$#,##0">{{{printSUMFormulaRange "H" 4 projects.length}}}</td>
+            <td class="cell-budget-content cell-budget-sum" data-cell-type="formula" data-cell-format-str="$#,##0">{{{printSUMFormulaRange "I" 4 projects.length}}}</td>
+            <td class="cell-risks-sum" data-cell-type="formula">{{{printSUMFormulaRange "J" 4 projects.length}}}</td>
+            <td class="cell-risks-sum" data-cell-type="formula">{{{printSUMFormulaRange "K" 4 projects.length}}}</td>
+            <td class="cell-risks-sum" data-cell-type="formula">{{{printSUMFormulaRange "L" 4 projects.length}}}</td>
+            <td class="cell-open-sum" data-cell-type="formula">{{{printSUMFormulaRange "M" 4 projects.length}}}</td>
+            <td class="cell-open-sum" data-cell-type="formula">{{{printSUMFormulaRange "N" 4 projects.length}}}</td>
+            <td class="cell-pending-actions-sum" data-cell-type="formula">{{{printSUMFormulaRange "O" 4 projects.length}}}</td>
+        </tr>
+    </table>

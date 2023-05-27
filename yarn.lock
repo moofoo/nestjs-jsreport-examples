@@ -855,6 +855,28 @@
     opentype.js "1.1.0"
     phantom-page-eval "2.0.1"
 
+"@jsreport/jsreport-pdf-utils@^3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@jsreport/jsreport-pdf-utils/-/jsreport-pdf-utils-3.9.0.tgz#c540eb0f88b3a06d5725e1c73f226eedb5c1b673"
+  integrity sha512-u7Arhf27hL1fioMuu7HTVjhXwALL3YdN5DMj8rG9pXCu9lt2Hfkcfo5OeIYq8ICH5bksNgTA0cE3GdfCqn7kkw==
+  dependencies:
+    "@jsreport/node-signpdf" "1.4.2"
+    "@jsreport/pdfjs" "1.4.0"
+    cheerio "1.0.0-rc.12"
+    lodash.omit "4.5.0"
+    nanoid "3.2.0"
+    node-forge "1.3.1"
+    parse-color "1.0.0"
+    pdfjs-dist "2.16.105"
+
+"@jsreport/jsreport-scripts@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@jsreport/jsreport-scripts/-/jsreport-scripts-3.4.1.tgz#8c86339d35e534b0646294bdf359d2ce9f62f3fc"
+  integrity sha512-Uvl8z7SNOh5iCwl/j8oNgMqv+TTwZPmuNLTWnwBgQQSudjG3WBGrOFBUxDESoO5gNrAD032TaEdqDnbQ/1UuBg==
+  dependencies:
+    lodash.omit "4.5.0"
+    node.extend.without.arrays "1.1.6"
+
 "@jsreport/jsreport-unoconv@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@jsreport/jsreport-unoconv/-/jsreport-unoconv-3.0.1.tgz#99eb66f67244737f2476ea5199f6c6710aebd3a6"
@@ -888,6 +910,11 @@
   resolved "https://registry.yarnpkg.com/@jsreport/mingo/-/mingo-2.4.1.tgz#019ff48079a3ffeff2a5d8f1380386b921a0fc81"
   integrity sha512-6ZXpnsXoLvXf8t1aGhJ3TamVdi3tHfDGlNs5qfaIQfIlUkga6x6juQD+9twO5NHn+PKKct/FQQBScOqC0SsrmA==
 
+"@jsreport/node-signpdf@1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@jsreport/node-signpdf/-/node-signpdf-1.4.2.tgz#982ba2cdb1571b5eb75c8ec473d9563a657f42b4"
+  integrity sha512-qk2IBd27OcrUc0JTNgzTwErZtOWO1BRzMEp153ShtZv9HGRF5KiyhAR0PqBx32LKdwlzcaCwHzSC9ciiuZJC/g==
+
 "@jsreport/office@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@jsreport/office/-/office-3.0.0.tgz#49eae6a3568107ff20c7acab1d8261f136257aaf"
@@ -902,6 +929,16 @@
     stream-to-array "2.3.0"
     yauzl "2.10.0"
     zip "1.2.0"
+
+"@jsreport/pdfjs@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@jsreport/pdfjs/-/pdfjs-1.4.0.tgz#9f962dbcaf3b983276e27aaa69de1e6610154bd2"
+  integrity sha512-6J160+bN5wTWlBIoqUwy1kKLwBWOgZ7iAUh/xrDjjQ7TlcKF2XxBpzFlUsKWZ8hrX1kI/FPLq5paE0WY3tpiyw==
+  dependencies:
+    "@jsreport/node-signpdf" "1.4.2"
+    crypto-js "4.1.1"
+    parse-color "1.0.0"
+    pdfjs-dist "2.16.105"
 
 "@jsreport/reap@0.1.0":
   version "0.1.0"
@@ -1298,7 +1335,7 @@
   dependencies:
     "@types/jsreport-core" "*"
 
-"@types/jsreport-scripts@*":
+"@types/jsreport-scripts@*", "@types/jsreport-scripts@^2.6.2":
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/@types/jsreport-scripts/-/jsreport-scripts-2.6.2.tgz#f4cbb19bf3821cdd5a7eab29ff3444a6108c146e"
   integrity sha512-wx6it1/Z1DAXqls10akg3m66ZK2F77RPrkWyTYwEWOlbEtru8/8gUcNTtUbRZGPsvRNE+/GPz9rb0/TSU+khFw==
@@ -2448,6 +2485,11 @@ color-convert@^2.0.1:
   dependencies:
     color-name "~1.1.4"
 
+color-convert@~0.5.0:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
+  integrity sha512-RwBeO/B/vZR3dfKL1ye/vx8MHZ40ugzpyfeVG5GsiuGnrlMWe2o8wxBbLCpw9CsxV+wHuzYlCiWnybrIA0ling==
+
 color-name@1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
@@ -2651,6 +2693,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+crypto-js@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
+  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
+
 css-list-helpers@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/css-list-helpers/-/css-list-helpers-2.0.0.tgz#7cb3d6f9ec9e5087ae49d834cead282806e8818f"
@@ -2848,6 +2895,11 @@ domhandler@^5.0.2, domhandler@^5.0.3:
   integrity sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==
   dependencies:
     domelementtype "^2.3.0"
+
+dommatrix@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dommatrix/-/dommatrix-1.0.3.tgz#e7c18e8d6f3abdd1fef3dd4aa74c4d2e620a0525"
+  integrity sha512-l32Xp/TLgWb8ReqbVJAFIvXmY7go4nTxxlWiAFyhoQw9RKEOHBZNnyGvJWqDVSPmq3Y9HlM4npqF/T6VMOXhww==
 
 domutils@^3.0.1:
   version "3.1.0"
@@ -5086,6 +5138,11 @@ node-fetch@^2.6.1, node-fetch@^2.6.11:
   dependencies:
     whatwg-url "^5.0.0"
 
+node-forge@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-1.3.1.tgz#be8da2af243b2417d5f646a770663a92b7e9ded3"
+  integrity sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA==
+
 node-int64@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
@@ -5294,6 +5351,13 @@ parent-module@^1.0.0:
   dependencies:
     callsites "^3.0.0"
 
+parse-color@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parse-color/-/parse-color-1.0.0.tgz#7b748b95a83f03f16a94f535e52d7f3d94658619"
+  integrity sha512-fuDHYgFHJGbpGMgw9skY/bj3HL/Jrn4l/5rSspy00DoT4RyLnDcRvPxdZ+r6OFwIsgAuhDh4I09tAId4mI12bw==
+  dependencies:
+    color-convert "~0.5.0"
+
 parse-css-sides@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/parse-css-sides/-/parse-css-sides-3.0.1.tgz#2abfb3d929eee828e55878443495b22cf3cc28e5"
@@ -5373,6 +5437,14 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+
+pdfjs-dist@2.16.105:
+  version "2.16.105"
+  resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-2.16.105.tgz#937b9c4a918f03f3979c88209d84c1ce90122c2a"
+  integrity sha512-J4dn41spsAwUxCpEoVf6GVoz908IAA3mYiLmNxg8J9kfRXc2jxpbUepcP0ocp0alVNLFthTAM8DZ1RaHh8sU0A==
+  dependencies:
+    dommatrix "^1.0.3"
+    web-streams-polyfill "^3.2.1"
 
 pend@~1.2.0:
   version "1.2.0"
@@ -6630,6 +6702,11 @@ wcwidth@^1.0.1:
   integrity sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==
   dependencies:
     defaults "^1.0.3"
+
+web-streams-polyfill@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz#71c2718c52b45fd49dbeee88634b3a60ceab42a6"
+  integrity sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

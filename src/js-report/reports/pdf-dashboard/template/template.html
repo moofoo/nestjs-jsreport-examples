@@ -1,0 +1,234 @@
+<html>
+    <head>
+        <style>
+            {{asset "pdf-daashboard-style" "utf8"}}
+            
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head> 
+    <body>
+        <header class="header">
+            <div class="logo">             
+                
+                <img src="{{asset "logo.png" "dataURI"}}" />
+
+
+                
+            </div>
+            <div class="summary">
+                Unresolved
+                <br />
+                <span class="summary-count">{{totalTasksUnresolved tasks}}</span>
+            </div>         
+            <div class="summary">
+                Resolved
+                <br />
+                <span class="summary-count">{{totalTasksResolved tasks}}</span>
+            </div>         
+            <div class="summary">
+                In Progress
+                <br />
+                <span class="summary-count">{{totalTasksInProgress tasks}}</span>
+            </div>         
+            <div class="summary">
+                In Review
+                <br />
+                <span class="summary-count">{{totalTasksInReview tasks}}</span>
+            </div>         
+        </header>
+        <main class="main">
+            <div class="charts">
+                <div class="chart-primary-group chart-container">
+                    <canvas id="issues-by-status-chart"></canvas>
+                </div>
+                <div class="chart-secondary-group">
+                    <div class="chart-secondary-item chart-container">
+                        <canvas id="priority-breakdown-chart" class="chart-canvas-full"></canvas>  
+                    </div>
+                    <div class="chart-secondary-item chart-container">
+                        <canvas id="issues-by-assignee-chart" class="chart-canvas-full"></canvas>  
+                    </div>
+                </div>
+            </div>
+            <div class="tasks">
+                <table class="tasks-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Assignee</th>
+                            <th>Priority</th>
+                            <th>Summary</th></th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each tasks}}
+                            <tr>
+                                <td>{{code}}</td>
+                                <td>{{assignee}}</td>
+                                <td>
+                                    <i class="{{iconByPriority this}}"></i>
+                                    {{priority}}
+                                </td>
+                                <td>{{summary}}</td>
+                                <td>
+                                    <i class="{{iconByStatus this}}"></i>
+                                    {{status}}
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+        <script src="https://unpkg.com/chart.js@2.7.3/dist/Chart.min.js"></script>
+        <script>
+            const issuesByStatusChart = document.getElementById('issues-by-status-chart')
+            const priorityBreakdownChart = document.getElementById('priority-breakdown-chart')
+            const issuesByAssigneeChart = document.getElementById('issues-by-assignee-chart')
+            const tasks = {{{toJS tasks}}}
+            
+            const byStatusChrt = new Chart(issuesByStatusChart.getContext('2d'), {
+                type: 'doughnut',
+                data: getDatasetForIssuesByStatus(tasks),
+                options: {
+                    maintainAspectRatio: false,
+                    cutoutPercentage: 60,
+                    animation: {
+                        duration: 0
+                    },
+                    title: {
+						display: true,
+						text: 'Issues by status',
+						fontSize: 26
+					},
+					legend: {
+					    position: 'bottom'
+					}
+                }
+            })
+            
+            const priorityChrt = new Chart(priorityBreakdownChart.getContext('2d'), {
+                type: 'horizontalBar',
+                data: getDatasetForIssuesPriority(tasks),
+                options: {
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 0
+                    },
+                    legend: {
+                      display: false  
+                    },
+                    title: {
+						display: true,
+						text: 'Priority Breakdown',
+						fontSize: 26
+					},
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                callback: (value, index, values) => {
+                                    return value + '%'
+                                }
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }]
+                    }
+                }
+            })
+            
+            const byAssigneeChrt = new Chart(issuesByAssigneeChart.getContext('2d'), {
+                type: 'horizontalBar',
+                data: getDatasetForIssuesByAssignee(tasks),
+                options: {
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 0
+                    },
+                    legend: {
+                      display: false  
+                    },
+                    title: {
+						display: true,
+						text: 'Issues by Assignee',
+						fontSize: 26
+					},
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }]
+                    }
+                }
+            })
+            
+            function getDatasetForIssuesByStatus (tasks) {
+                const statusColors = {
+                    'In Review': '#F6C33E',
+                    'In Progress': '#D04336', 
+                    'Backlog': '#8EB11E', 
+                    'Done': '#3573B0', 
+                    "Selected": '#634885'
+                }
+                
+                const byStatusData = _.groupBy(tasks, (t) => t.status)
+                const byStatusKeys = Object.keys(byStatusData)
+                
+                return {
+                    datasets: [{
+                        data: byStatusKeys.map((k) => byStatusData[k].length),
+                        backgroundColor: byStatusKeys.map((k) => statusColors[k]),
+                        borderColor: byStatusKeys.map((k) => statusColors[k])
+                    }],
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: byStatusKeys
+                }
+            }
+            
+            function getDatasetForIssuesPriority (tasks) {
+                const byPriorityData = _.groupBy(tasks, (t) => t.priority)
+                const byPriorityKeys = Object.keys(byPriorityData)                
+                const total = tasks.length
+                
+                const barColor = '#D14336'
+                
+                return {
+                    labels: byPriorityKeys,
+                    datasets: [{
+                        data: byPriorityKeys.map((k) => ((byPriorityData[k].length / total) * 100)),
+                        backgroundColor: byPriorityKeys.map(() => barColor)
+                    }]
+                }
+            }
+            
+            function getDatasetForIssuesByAssignee (tasks) {
+                const byAssigneeData = _.groupBy(tasks, (t) => t.assignee)
+                const byAssigneeKeys = Object.keys(byAssigneeData)                
+                
+                const barColor = '#3573B0'
+                
+                return {
+                    labels: byAssigneeKeys,
+                    datasets: [{
+                        data: byAssigneeKeys.map((k) => byAssigneeData[k].length),
+                        backgroundColor: byAssigneeKeys.map(() => barColor)
+                    }]
+                }
+            }
+            
+            window.JSREPORT_READY_TO_START = true
+        </script>        
+    </body>
+</html>

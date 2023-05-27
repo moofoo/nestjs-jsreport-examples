@@ -17,10 +17,13 @@ export class TemplateHelper {
     return result.length > 0;
   }
 
-  async insertFn<T = unknown>(name: string, templateFn: () => Named & T) {
+  async insertFn<T = unknown>(
+    name: string,
+    templateFn: () => (Named & T) | Promise<Named & T>,
+  ) {
     const isStored = await this.stored(name);
     if (!isStored) {
-      await this.insert(templateFn());
+      await this.insert(await templateFn());
     }
   }
 

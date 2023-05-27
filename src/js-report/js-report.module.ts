@@ -15,6 +15,9 @@ import { JsReportController } from './js-report.controller';
     Reports.PopulationReport,
     Reports.StudentReport,
     Reports.TicketReport,
+    Reports.PdfFormsReport,
+    Reports.PdfDashboardReport,
+    Reports.ExcelDashReport,
   ],
   controllers: [JsReportController],
 })

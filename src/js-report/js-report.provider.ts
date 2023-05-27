@@ -7,6 +7,8 @@ const useFactory = async () => {
   */
   const jsReport = JsReportCore({
     loadConfig: false,
+    allowLocalFilesAccess: true,
+
     autoTempCleanup: true,
     discover: false,
     trustUserCode: true,
@@ -43,6 +45,8 @@ const useFactory = async () => {
   jsReport.use(require(`@jsreport/jsreport-handlebars`)());
   jsReport.use(require('@jsreport/jsreport-assets')());
   jsReport.use(require('@jsreport/jsreport-unoconv')());
+  jsReport.use(require('@jsreport/jsreport-pdf-utils')());
+  jsReport.use(require('@jsreport/jsreport-scripts')());
 
   await jsReport.init();
 

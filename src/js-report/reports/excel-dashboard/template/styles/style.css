@@ -1,0 +1,122 @@
+* {
+      font-family: Arial;
+    }
+    
+    td {
+      border: 1px solid #b3c5e7;
+      padding: 8px;
+      font-size: 12px;
+      text-align: center;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+    }
+    
+    .line-break {
+      overflow: scroll;
+    }
+    
+    .cell-titles td {
+      font-weight: bold;
+      color: #fff;
+    }
+    
+    .cell-project-name {
+      background-color: #2f5596;
+    }
+    
+    .cell-project-name-content {
+      text-align: left;
+    }
+    
+    .cell-timeline {
+      background-color: #4472c4;
+    }
+    
+    .cell-timeline-child {
+      background-color: #5b9cd5;
+    }
+    
+    .cell-number-of-team-members {
+      background-color: #732de0;
+    }
+    
+    .cell-budget {
+      background-color: #31af4f;
+    }
+    
+    .cell-budget-child {
+      background-color: #92d050;
+    }
+    
+    .cell-budget-content {
+      text-align: right;
+    }
+    
+    .cell-budget-sum {
+      color: #31af4f;
+    }
+    
+    .cell-risks {
+      background-color: #c01800;
+    }
+    
+    .cell-risks-child {
+      background-color: #f42100;
+    }
+    
+    .cell-risks-sum {
+      color: #c01800;
+    }
+    
+    .cell-open {
+      background-color: #ec7d00;
+    }
+    
+    .cell-open-child {
+      background-color: #f1b93c;
+    }
+    
+    .cell-open-sum {
+      color: #ec7d00;
+    }
+    
+    .cell-pending-actions {
+      background-color: #bf8f00;
+    }
+    
+    .cell-pending-actions-sum {
+      color: #bf8f00;
+    }
+    
+    .row-even .cell-project-name-content {
+      background-color: #deebf6;
+    }
+    
+    .row-even .cell-timeline-content {
+      background-color: #d8e2f3;
+    }
+    
+    .row-even .cell-number-of-team-members-content {
+      background-color: #e3daff;
+    }
+    
+    .row-even .cell-budget-content {
+      background-color: #e2efd8;
+    }
+    
+    .row-even .cell-risks-content {
+      background-color: #fcdbe4;
+    }
+    
+    .row-even .cell-open-content {
+      background-color: #fbe4d5;
+    }
+    
+    .row-even .cell-pending-actions-content {
+      background-color: #fcf2cc;
+    }
+    

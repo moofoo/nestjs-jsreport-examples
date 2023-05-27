@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "checkJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowArbitraryExtensions": true,

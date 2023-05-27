@@ -4,3 +4,6 @@ export * from './invoice-xlsx/invoice-xlsx.report';
 export * from './population/population.report';
 export * from './student/student.report';
 export * from './ticket/ticket.report';
+export * from './pdf-forms/pdf-forms.report';
+export * from './pdf-dashboard/pdf-dashboard.report';
+export * from './excel-dashboard/excel-dashboard.report';
