@@ -30,31 +30,36 @@ export class ExcelDashReport {
         ),
       },
     ]);
+
+    setTimeout(() => {
+      this.jsReport.template.insertFn<ScriptsTemplate>(
+        'excel-dashboard',
+        async () => ({
+          name: 'excel-dashboard',
+          recipe: 'html-to-xlsx',
+          engine: 'handlebars',
+          scripts: [{ name: 'calculations.js' }],
+          baseXlsxTemplate: null,
+          htmlToXlsx: {
+            htmlEngine: 'chrome',
+            templateAssetShortid: await this.jsReport.asset.shortId(
+              'project-portfolio-dashboard-template.xlsx',
+            ),
+          } as any,
+          content: fs.readFileSync(
+            path.join(__dirname, 'template/template.html'),
+            'utf-8',
+          ),
+          helpers: fs.readFileSync(
+            path.join(__dirname, 'template/helpers.js'),
+            'utf-8',
+          ),
+        }),
+      );
+    });
   }
 
   async render(pdf = false, data = excelDashData) {
-    this.jsReport.template.insert<ScriptsTemplate>({
-      name: 'excel-dashboard',
-      recipe: 'html-to-xlsx',
-      engine: 'handlebars',
-      scripts: [{ name: 'calculations.js' }],
-      baseXlsxTemplate: null,
-      htmlToXlsx: {
-        htmlEngine: 'chrome',
-        templateAssetShortid: await this.jsReport.asset.shortId(
-          'project-portfolio-dashboard-template.xlsx',
-        ),
-      } as any,
-      content: fs.readFileSync(
-        path.join(__dirname, 'template/template.html'),
-        'utf-8',
-      ),
-      helpers: fs.readFileSync(
-        path.join(__dirname, 'template/helpers.js'),
-        'utf-8',
-      ),
-    } as any);
-
     return this.jsReport.render({
       options: { reportName: 'excel-dashboard' },
       template: {
