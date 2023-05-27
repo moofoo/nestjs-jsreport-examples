@@ -114,7 +114,7 @@ Rather, I wanted to
 
 #### **RANT**
 
-JSReport, as far as I'm aware, is the only business reports company whose code base, top to bottem, is all open source and free for anyone to use. More impressively, they have intentionally architected their application as a collection of loosely coupled functional parts (extensions) that can be repurposd, mixed and matched, to perform useful work outside of their original Web GUI, Studio context. That is to say, outside the context where they make money for JSReport the business. And to top it all off, the core functionality on offer here - templating and doc gen - is **superlative**. Endless kudos.
+JSReport, as far as I'm aware, is the only business reports company whose code base, top to bottem, is all open source and free for anyone to use. More impressively, they have intentionally architected their application as a collection of loosely coupled functional parts (extensions) that can be repurposd, mixed and matched, to perform useful work outside of their original Web GUI, Studio context. That is to say, outside the context where they make money for JSReport, as a the business. And to top it all off, the core functionality on offer here - templating and doc gen - is **superlative**. Endless kudos.
 
 Software like this really deserves more attention and love, especially given how bizarrely expensive and frankly predatory so many SaaS services in the space are.
 
