@@ -25,10 +25,7 @@ export class AssetHelper {
       return 'shortId';
     }
 
-    const found: any = await this.find(name);
-    console.log('FOUND', found);
-
-    return found.shortid;
+    return ((await this.find(name)) as any)?.shortid;
   }
 
   async insert(asset: {

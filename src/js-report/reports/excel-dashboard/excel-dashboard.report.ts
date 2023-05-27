@@ -33,11 +33,6 @@ export class ExcelDashReport {
   }
 
   async render(pdf = false, data = excelDashData) {
-    const what = await this.jsReport.asset.shortId(
-      'project-portfolio-dashboard-template.xlsx',
-    );
-    console.log('WHAT', what);
-
     this.jsReport.template.insert<ScriptsTemplate>({
       name: 'excel-dashboard',
       recipe: 'html-to-xlsx',
