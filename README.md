@@ -6,13 +6,25 @@ git clone https://github.com/moofoo/nestjs-jsreport-examples && cd nestjs-jsrepo
 
 This repo demonstrates NestJS + JSReport integration. I've replicated all of the JSReport "[showcase](https://jsreport.net/showcases/)" reports minus the "PDF Stock Report", due to it's complexity. Like seriously, they went to town with that one. I also did a few of the simpler example reports from the [JSReport Playground](https://playground.jsreport.net/), just because.
 
-The goal here is not to present a complete and self-contained JSReports module that others can import and use, though that might happen eventually. Rather, I wanted to
+The goal here is not to present a complete, self-contained and ready to use JSReports module, though that will probably happen eventually, with this repo being a big step in that direction. ('this repo' represents ~3 days worth of work integerating a completely unfamiliar code base, so adjust your expectations accordingly).
 
-- Show that the integration is possible and its potential,
-- Work through the expected 'gotchas', quirks and pain points that come with the territory, so that future templating/report work that I'm actually getting paid for will be hella easy,
-- I also want to show off how powerful and fully-featured the core JSReport framework is, to anyone paying attention. JSReport is literally the only business reports company I'm aware of that has their entire code base, top to bottom, open source and free for anyone to use, and it's fucking **legit**
+Rather, I wanted to
 
-Software like this deserves attention and love, especially given how ridiculously costly and frankly predatory so many SaaS services in the space are.
+- Demonstrate that the JSReport core libraries function adequately outside their usual web-based GUI context, as advertised.
+
+- Towards that end, demonstrate the feasiblity and potential of integrating JsReport with NestJS in code (you're looking at it)
+
+- Hopefully put something together that shows how powerful and fully-featured the core, low-level JSReport framework is on its own, to anyone paying attention. because I think it's cool.
+
+#
+
+#### **RANT**
+
+JSReport, as far as I'm aware, is the only business reports company whose code base, top to bottem, is all open source and free for anyone to use. More impressively, they have intentionally architected their application as a collection of loosely coupled functional parts (extensions) that can be repurposd, mixed and matched, to perform useful work outside of their original Web GUI, Studio context. That is to say, outside the context where they make money for JSReport the business. And to top it all off, the core functionality on offer here, templating and doc gen, is **fucking legit**. Endless kudos.
+
+Software like this really deserves more attention and love, especially given how crazy expensive and frankly predatory so many SaaS services in the space are.
+
+#### **/RANT**
 
 #
 
