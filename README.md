@@ -106,16 +106,16 @@ Rather, I wanted to
 
 - Verify that the JSReport core libraries function adequately outside their usual web-based GUI context, as advertised.
 
-- Towards that end, demonstrate the feasiblity and potential of integrating JsReport with NestJS in code (you're looking at it)
+- Demonstrate the feasiblity and potential of integrating JsReport with NestJS, in code (you're looking at it)
 
-- Hopefully put something together that shows how powerful and fully-featured the core, low-level JSReport framework is on its own, to anyone paying attention. because I think it's cool.
+- Hopefully illustrate how useful and fully-featured the JSReport library is on its own, separate from the Studio GUI, to anyone paying attention, because I think it's cool.
 
 #
 
 #### **RANT**
 
-JSReport, as far as I'm aware, is the only business reports company whose code base, top to bottem, is all open source and free for anyone to use. More impressively, they have intentionally architected their application as a collection of loosely coupled functional parts (extensions) that can be repurposd, mixed and matched, to perform useful work outside of their original Web GUI, Studio context. That is to say, outside the context where they make money for JSReport the business. And to top it all off, the core functionality on offer here, templating and doc gen, is **superlative**. Endless kudos.
+JSReport, as far as I'm aware, is the only business reports company whose code base, top to bottem, is all open source and free for anyone to use. More impressively, they have intentionally architected their application as a collection of loosely coupled functional parts (extensions) that can be repurposd, mixed and matched, to perform useful work outside of their original Web GUI, Studio context. That is to say, outside the context where they make money for JSReport the business. And to top it all off, the core functionality on offer here - templating and doc gen - is **superlative**. Endless kudos.
 
-Software like this really deserves more attention and love, especially given how crazy expensive and frankly predatory so many SaaS services in the space are.
+Software like this really deserves more attention and love, especially given how bizarrely expensive and frankly predatory so many SaaS services in the space are.
 
 #### **/RANT**
