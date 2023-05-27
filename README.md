@@ -10,7 +10,7 @@ The goal here is not to present a complete and self-contained JSReports module t
 
 - Show that the integration is possible and its potential,
 - Work through the expected 'gotchas', quirks and pain points that come with the territory, so that future templating/report work that I'm actually getting paid for will be hella easy,
-- I also want to show off how powerful and fully-featured the core JSReport framework is, to anyone paying attenntion. JSReport is literally the only business reports company that has their entire code base, top to bottom, open source and free for anyone to use, and it's fucking **legit**
+- I also want to show off how powerful and fully-featured the core JSReport framework is, to anyone paying attention. JSReport is literally the only business reports company that has their entire code base, top to bottom, open source and free for anyone to use, and it's fucking **legit**
 
 Software like this deserves attention and love, especially given how ridiculously costly and frankly predatory so many SaaS services in the space are.
 
