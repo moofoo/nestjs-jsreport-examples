@@ -1,7 +1,10 @@
 # nestjs-jsreport-examples
 
 ```console
-git clone https://github.com/moofoo/nestjs-jsreport-examples && cd nestjs-jsreport-examples && yarn && yarn start:dev
+git clone https://github.com/moofoo/nestjs-jsreport-examples && \
+cd nestjs-jsreport-examples && \
+yarn && \
+yarn start:dev
 ```
 
 This repo demonstrates what you can do with the core JSReport libraries programmatically in your own NodeJS apps.
